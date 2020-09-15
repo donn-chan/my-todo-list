@@ -52,28 +52,31 @@ const Todo = ({task, todoList, doneList, helperMethods, editTask }) => {
             ) : null}
             
             {doneList.length !== 0 ? (
-                <div className="done-list ui segments">
-                {doneList.map((todo, index) => {
-                    return ( 
-                        <div key={index} className={todo.isCompleted ? "completed ui segment todo-item" : "ui segment todo-item" }>
-                            <div className="todo-content">{todo.text}</div>
-                            <div className="todo-modifier">
-                                <Button 
-                                    buttonClass="ui button positive"
-                                    onButtonClick={() => helperMethods.handleUndo(index)} 
-                                    content={todo.isCompleted ? "Undo" : <i className="check circle outline icon"></i>} 
-                                />
+                <div>
+                    <p>Completed Tasks</p>
+                    <div className="done-list ui segments">
+                        {doneList.map((todo, index) => {
+                            return ( 
+                                <div key={index} className={todo.isCompleted ? "completed ui segment todo-item" : "ui segment todo-item" }>
+                                    <div className="todo-content">{todo.text}</div>
+                                    <div className="todo-modifier">
+                                        <Button 
+                                            buttonClass="ui button positive"
+                                            onButtonClick={() => helperMethods.handleUndo(index)} 
+                                            content={todo.isCompleted ? "Undo" : <i className="check circle outline icon"></i>} 
+                                        />
 
-                                <Button 
-                                    buttonClass="ui button negative delete" 
-                                    onButtonClick={() => helperMethods.handleDoneDelete(index)} 
-                                    content={<i className="trash alternate outline icon"></i>} 
-                                />
-                            </div>
-                        </div>
-                    ); 
-                })}
-            </div>
+                                        <Button 
+                                            buttonClass="ui button negative delete" 
+                                            onButtonClick={() => helperMethods.handleDoneDelete(index)} 
+                                            content={<i className="trash alternate outline icon"></i>} 
+                                        />
+                                    </div>
+                                </div>
+                            ); 
+                        })}
+                    </div>
+                </div>
             ) : null}
             
         </div>

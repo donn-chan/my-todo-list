@@ -11,10 +11,11 @@
     cursor: pointer;
 }
 .completed {
-    background-color: green !important;
+    color: #ccc;
 }
 .completed .todo-content {
     text-decoration: line-through;
+    text-decoration-color: red;
 }
 .input-wrapper {
     width: calc(100% - 100px);
