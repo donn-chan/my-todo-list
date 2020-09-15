@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+.container {
+    padding-top: 20px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todo-list {
+    padding-left: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todo-list li { 
+    list-style: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.delete {
+    cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
+.completed {
+    background-color: green !important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.completed .todo-content {
+    text-decoration: line-through;
+}
+.input-wrapper {
+    width: calc(100% - 100px);
+}
+.todo-item {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-areas:
+        'content modifiers'
+        'edit edit';
+    grid-row-gap: 10px;
+    align-items: center;
+}
+.todo-content {
+    word-break: break-word;
+    padding-right: 20px;
+    grid-area: content;
+}
+.todo-modifier {
+    justify-self: flex-end;
+    display: flex;
+    flex-flow: row nowrap;
+    grid-area: modifiers;
+}
+.edit-field {
+    grid-area: edit;
+}
+.ui.button:not(.icon)>.icon:not(.button):not(.dropdown) {
+    margin: 0;
+}
+.todo-list .ui.button {
+    padding: 10px;
 }
